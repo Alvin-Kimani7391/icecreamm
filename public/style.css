@@ -1,0 +1,416 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+#b2{
+ background-color:  #fffaf7 ;
+}
+#login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fffaf7;;
+}
+#login-container{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 40px 30px;
+    max-width: 400px;
+    margin: 80px auto;
+    text-align: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+
+}
+#login-container input{
+    width: 100%;
+    padding: 12px 18px;
+    margin: 12px 0;
+    border-radius: 15px;
+    border: 2px solid #ff4f70;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease;
+}
+#login-container input:focus{
+    border-color: #b03c52;
+}
+#login-container button{
+    background-color: #ff4f70;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    
+}
+#login-container button:hover{
+    background-color: #b03c52;
+
+}
+body{
+    background: #fffaf7;
+    color: #333;
+    padding: 20px;
+    
+}
+
+header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+header h1{
+    font-size: 3em;
+    color: #ff4f70;
+    margin-bottom: 10px;
+}
+#button{
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    padding: 15px 18px;
+    border: none;
+    background: none;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+
+}
+#button.open{
+    transform: rotate(90deg);
+}
+.list a,.flavors button{
+    cursor: pointer;
+}
+.list{
+    z-index: 1000;
+    left: -300px;
+    position: absolute;
+    top: 40px;
+    padding-top:70px;
+    background-color: #ff4f70;
+    width: 300px;
+    height: 100vh;
+    text-align: left;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius:10px ;
+    
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #b03c52;
+    overflow-y: auto;
+
+}
+
+.list li a{
+    text-decoration: none;
+    color: white;
+}
+.list li{
+    list-style-type: none;
+    padding: 8px;
+    margin: 7px;
+    
+
+}
+
+.submenu{
+    display: none;
+    transition: max-height 0.3s ease-in-out;
+}
+.submenu.show2{
+    display: block;
+}
+ul li:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
+.flavors button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9em;
+}
+ul li:not(.flavors):hover{
+    background-color: #d6a0aa;
+}
+.flavors button:hover{
+    background-color: #d6a0aa;
+}
+ul.show{
+    left: 0;
+}
+#searchbar{
+    padding: 20px;
+    width: 60%;
+    border: 2px solid #ff4f70;
+    outline: none;/*To remove the black on the input outline*/
+    border-radius: 25px;
+    font-size: 1.2em;
+}
+.filter-buttons{
+    text-align: center;
+    margin: 20px;
+}
+.filter-btn{
+    background: #ffe4e1;
+    border: none;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+}
+.filter-btn.active,.filter-btn:hover{
+    background-color: #ff4f70;
+    color: white;
+}
+.icecream-container{
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    /*display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));*/
+    gap: 20px;
+}
+.icecream-card{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    height: auto;
+    width: 300px;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+    
+}
+.icecream-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 px 15px rgba(0,0,0,0.15);
+}
+.icecream-card img{
+    
+    object-fit: cover;
+    display: block;
+    height: 400px;
+    width: 300px;
+    
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.icecream-card h3{
+    margin: 10px;
+    color: #ff4f70;
+}
+.icecream-card p{
+    margin: 0 10px 15px;
+    color: #666;
+}
+footer{
+    text-align: center;
+    margin-top: 30px;
+    color: #999;
+    font-size: 1.2em;
+}
+.divv{
+    text-align: center;
+    font-size: 2em;
+}
+.visit-us{
+    background: #ff4f70;
+    color: white;
+    padding: 18px 0;
+    border-radius: 20px;
+    margin: 30px auto 0 auto;
+    width: 60%;
+    font-size: 1.3em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+#icon a{
+    margin: 10px;
+}
+/* Comment style */
+.comments-section {
+    background: #f9f6f2;
+    border-left: 4px solid #ff4f70;
+    margin: 15px 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    color: #555;
+    font-size: 1em;
+    font-style: italic;
+}
+.comments-section input{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+.comments-section textarea{
+    width: 450px;
+    height: 150px;
+    margin-bottom: -14px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+.comments-section button{
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.comments-section button:hover{
+    background-color: #555;
+    color: white;
+}
+ .flavors button:focus{
+    outline: none;
+  }
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+    #button{
+     outline: none;   
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    padding: 10px 14px;
+    border: none;
+    background: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+
+}
+#button:focus,#button:active{
+    outline: none;
+    box-shadow: none;
+    
+}
+#button.open{
+    transform: rotate(90deg);
+}
+.list a,.flavors button{
+    cursor: pointer;
+}
+.list{
+    z-index: 1000;
+    left: -220px;
+    position: absolute;
+    top: 19px;
+    padding-top:50px;
+    background-color: #ff4f70;
+    width: 200px;
+    height: 60vh;
+    text-align: left;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius:10px ;
+    
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.list li a{
+    text-decoration: none;
+    color: white;
+}
+.list li{
+    list-style-type: none;
+    padding: 8px;
+    margin: 7px;
+    
+
+}
+.submenu{
+    display: none;
+    transition: max-height 0.3s ease-in-out;
+}
+.submenu.show2{
+    display: block;
+}
+ul li:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
+.flavors button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9em;
+}
+ul li:not(.flavors):hover{
+    background-color: #d6a0aa;
+}
+.flavors button:hover{
+    background-color: #d6a0aa;
+}
+ul.show{
+    left: 0;
+}
+
+    #searchbar {
+        width: 90%;
+        font-size: 1em;
+        padding: 15px;
+    }
+        .filter-btn {
+        font-size: 0.9em;
+        padding: 8px 14px;
+    }
+     .icecream-container {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+    .icecream-card {
+        width: 90%;
+    }
+     .icecream-card img {
+        width: 100%;
+        height: auto;
+    }
+    .visit-us {
+        width: 90%;
+        font-size: 1em;
+        padding: 15px 0;
+    
+    }
+    .comments-section form{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .comments-section input,
+    .comments-section textarea ,
+    .comments-section button{
+        width: 90%;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    .comments-section textarea{
+        height: 120px;
+    }
+    .comments-section input{
+        height: 40px;
+    }
+    footer{
+        font-size: 1.0em;
+        
+    }
+    #icon a {
+        margin: 5px;
+    }
+
+  .flavors button:focus{
+    outline: none;
+  }  
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ice Cream Delights</title>
+        <link rel="stylesheet" href="maziwa.css">
+        <link rel="icon" href="files/my logo.jpg">
+        <script src="https://kit.fontawesome.com/e1426ab85b.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <button id="button" onclick="togglemenu()">☰</button>
+            <span class="sidebar" id="sidebar">
+            <ul id="list"class="list">
+                <li><a href="#home">Home</a></li>
+  <li class="flavors" >
+    <button id="flavorbtn" onclick="tosubmenu()">Flavors</button>
+    <ul class="submenu" id="submenu">
+        <li><a>Chocolate</a></li>
+        <li><a>Fruit</a></li>
+        <li><a>Vanilla</a></li>
+        <li><a>Specials</a></li>
+    </ul>
+  </li>
+  <li><a href="#specials">Special Offers</a></li>
+  <li><a href="#visit">Visit Us</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li>
+    <a href="/logout" style=" color: rgb(255, 255, 255);">Logout</a>
+
+  </li>
+
+            </ul></span>
+            <h1>Ice Cream Delights</h1>
+            <input type="text" id="searchbar" placeholder="Search ice cream...">
+        </header>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="chocolate">Chocolate</button>
+            <button class="filter-btn" data-category="fruit">Fruit</button>
+            <button class="filter-btn" data-category="vanilla">Vanilla</button>
+            <button class="filter-btn" data-category="special">Specials</button>
+        </div>
+
+        <main class="icecream-container" id="icc">
+            <!--Example cards-->
+            <div class="icecream-card" data-category="chocolate">
+                <img src="imagess/2rose.jpg" alt="Rose Ice cream">
+                <h3>Rose Chocolate Bliss</h3>
+                <p>Rich creamy Rose  chocolate ice cream for true chocoholics.</p>
+            </div>
+
+            <div class="icecream-card" data-category="chocolate">
+                <img src="imagess/ruby.jpg" alt="Ruby Ice cream">
+                <h3>Ruby Chocolate </h3>
+                <p>Delicate and velvety Ruby ice cream with a natural berry.
+</p>
+            </div>
+
+            <div class="icecream-card" data-category="fruit">
+                <img src="imagess/strawberry.jpg" alt="Strawberry Ice cream">
+                <h3>Strawberry Dream</h3>
+                <p>Fresh strawberries blended into a smooth, fruity delight.</p>
+            </div>
+
+            <div class="icecream-card" data-category="vanilla">
+                <img src="imagess/vanilla.jpg" alt="Vanilla Ice Cream">
+                <h3>Classic Vanilla</h3>
+                <p>Simple, timeless, and loved by everyone.</p>
+            </div>
+
+            <div class="icecream-card" data-category="vanilla">
+                <img src="imagess/vegan2.jpg" alt="Vegan Ice Cream">
+                <h3>Vegan Vanilla</h3>
+                <p>Smooth and creamy Vegan Vanilla made with plant-based goodness.
+</p>
+            </div>
+
+            <div class="icecream-card" data-category="special">
+                <img src="imagess/mint magic.jpg" alt="Mint Ice Cream">
+                <h3>Mint Magic</h3>
+                <p>Refreshing mint flavor with a touch of chocolate chips.</p>
+            </div>
+
+            <div class="icecream-card" data-category="special">
+                <img src="imagess/ninja mint.jpg" alt="Ninja Mint Ice Cream">
+                <h3>Ninja Mint Magic</h3>
+                <p>Cool and refreshing Ninja Mint ice cream with a bold minty kick and dark chocolate swirls — a stealthy delight that packs a punch.</p>
+            </div>
+
+            <div class="icecream-card" data-category="special">
+                <img src="imagess/mint shake.jpg" alt="Mint Shake Ice Cream">
+                <h3>Mint Shake </h3>
+                <p>Cool, creamy mint shake with a refreshing kick.
+</p>
+            </div>
+            
+            
+
+            <div class="icecream-card" data-category="chocolate">
+                <img src="imagess/black cohocolate.jpg" alt="Dark Chocolate Ice Cream">
+                <h3>Dark Chocolate Crunch</h3>
+                <p>Deep cocoa flavor and crispy bits for a bold taste.</p>
+            </div>
+
+            <div class="icecream-card" data-category="chocolate">
+                <img src="imagess/milk.jpg" alt="Milk Chocolate Ice cream">
+                <h3>Milk Chocolate </h3>
+                <p>Smooth, creamy Milk Chocolate ice cream for classic chocolate lovers.
+</p>
+            </div>
+
+            <div class="icecream-card" data-category="fruit">
+                <img src="imagess/passion.jpg" alt="Passion Fruit Ice cream">
+                <h3>Passion Fruit Ice Cream</h3>
+                <p>Tangy, tropical Passion Ice bursting with refreshing citrus flavor.
+</p>
+            </div>
+
+            <div class="icecream-card" data-category="special">
+                <img src="imagess/white.jpg" alt="Vanilla & Chocolate Ice Cream">
+                <h3>Vanilla & Chocolate flavor</h3>
+                <p>Refreshing vanilla flavor with a touch of chocolate flavour.</p>
+            </div>
+
+            <div class="icecream-card" data-category="fruit">
+                <img src="imagess/drangon.jpg" alt="Dragon Fruit Ice cream">
+                <h3>Dragon Fruit </h3>
+                <p>Vibrant, tropical Dragon Fruit ice cream with a subtly sweet twist.
+</p>
+            </div>
+
+        </main>
+        <section class="visit-us " id="visit">
+            <h2>Visit My Place</h2>
+            <p>Come enjoy our delicious ice cream at our cozy shop! We’re located at:</p>
+            <address>
+                General Kago Street,<br>
+                Near Moi Avenue,<br>
+                Nairobi
+            </address>
+            <p>Open daily: 10:00 AM – 9:00 PM</p>
+            <p>We can’t wait to serve you your next favorite treat!</p>
+        </section>
+        <section class="comments-section">
+            <h2>Leave a Comment</h2>
+            <form id="commentForm" method="POST" action="https://formspree.io/f/meorvole">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="3" required></textarea>
+                <button type="submit" onclick="savedname()">Post Comment</button>
+            </form></section>
+           
+
+        <footer>
+            <p>&copy; 2025 Ice Cream Delights| Made with ❤</p><br>
+            <p>Follow us:
+                <span id="icon"><icon>
+                <a><i class="fa-brands fa-facebook-f fa-2xl "   style="color: #3937ca;"></i></a>
+                <a href="https://vm.tiktok.com/ZMH7WfY5w9Ecs-W1fGf/"><i class="fa-brands fa-tiktok fa-2xl" style="color: #18181a;"></i></a>
+                <a href="https://www.instagram.com/wizz_kimani?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fa-brands fa-instagram fa-2xl" style="color: #f20707;"></i></a>
+                <a href="https://x.com/kiman1244?s=09" target="_blank"><i class="fa-brands fa-square-x-twitter fa-2xl" style="color: #000000;"></i></a>
+                <a href="https://www.youtube.com/channel/UC5PN7FlhiCzsSRSbsnZBZIQ" target="_blank"><i class="fa-brands fa-youtube fa-2xl" style="color: #fa0505;"></i></a>
+            
+            </icon></span>
+            </p>
+        </footer>
+        <script src="maziwa.js"></script>
+    </body>
+</html>
