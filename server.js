@@ -6,10 +6,15 @@ const path = require('path');
 const User = require('./models/user');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Replace with your actual MongoDB URI
-const MONGO_URI = 'mongodb+srv://alvinkimani685_db_user:wUkOkscyMpEhoSE7@logindb.ir5crs9.mongodb.net/loginDB?retryWrites=true&w=majority&appName=logindb';
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error('❌ MONGO_URI is not defined in environment variables');
+  process.exit(1); // Exit if no URI found
+}
 
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
@@ -32,7 +37,7 @@ app.use(session({
 
 // Login Page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Registration Page
@@ -41,7 +46,7 @@ app.get('/register', (req, res) => {
 });
 
 // Handle Login
-app.post('/login', async (req, res) => {
+app.post('/index', async (req, res) => {
     const { username, password } = req.body;
     console.log(`🔑 Login attempt: ${username}`);
 
