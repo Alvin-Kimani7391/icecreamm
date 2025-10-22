@@ -8,7 +8,7 @@ const path = require('path');
 const User = require('./models/user');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Replace with your actual MongoDB URI
 const MONGO_URI = process.env.MONGO_URI;
@@ -50,7 +50,7 @@ app.get('/register', (req, res) => {
 });
 
 // Handle Login
-app.post('/index', async (req, res) => {
+app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     console.log(`🔑 Login attempt: ${username}`);
 
