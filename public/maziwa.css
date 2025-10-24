@@ -17,7 +17,7 @@
     text-align: center;
  padding: 18px ;
  width: 300px;
- margin: 30px;
+ 
  border: none;
  background: pink;
  border-radius: 20px;
@@ -32,21 +32,35 @@
     text-align: center;
     margin: 20px;
 }
+
 #h23{
     text-align: center;
     color: #b03c52;
 }
+#h34{
+    font-size: 2.5rem;
+}
 #hgv{
     margin: 0;
       color: #a87f7f;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
 }
 .fam{
+    align-items: center;
     text-align: center;
     border: 1px solid black;
     border-radius: 15px;
     margin-top: 20px;
     margin-bottom: 12px;
+}
+#register{
+    margin-bottom: 20px;
+}
+#already{
+    margin-top: 20px;
+}
+.fam a{
+    text-align: center;
 }
 #login-wrapper{
     display: flex;
@@ -320,6 +334,21 @@ footer{
     header h1 {
         font-size: 2em;
     }
+    #body-intro{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .fam{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .fam a{
+    width: 90%;
+    
+    
+}
     #button{
      outline: none;   
     position: absolute;
