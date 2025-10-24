@@ -7,6 +7,47 @@
 #b2{
  background-color:  #fffaf7 ;
 }
+/* For introduction page*/
+.sp{
+    display: inline-block;
+}
+.intro{
+    text-decoration: none;
+    display:inline-block;
+    text-align: center;
+ padding: 18px ;
+ width: 300px;
+ margin: 30px;
+ border: none;
+ background: pink;
+ border-radius: 20px;
+ font-size: 1.2em;
+ transition: transform 3s ease;
+}
+.intro:hover{
+    background: palevioletred;
+    color: white;
+}
+.specials{
+    text-align: center;
+    margin: 20px;
+}
+#h23{
+    text-align: center;
+    color: #b03c52;
+}
+#hgv{
+    margin: 0;
+      color: #a87f7f;
+      font-size: 2.5rem;
+}
+.fam{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
 #login-wrapper{
     display: flex;
     align-items: center;
