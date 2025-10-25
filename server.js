@@ -110,12 +110,14 @@ app.post('/login', async (req, res) => {
 });
 
 //handle forgot password
+// Handle Forgot Password
 app.post('/forgot-password', async (req, res) => {
     const { username } = req.body;
 
     try {
         const user = await User.findOne({ username });
         if (!user) {
+            console.log(`❌ No account found for: ${username}`);
             return res.send('❌ No account found with that username.');
         }
 
@@ -123,41 +125,48 @@ app.post('/forgot-password', async (req, res) => {
         const token = crypto.randomBytes(20).toString('hex');
         resetTokens.set(token, user.username);
 
+        // Use FRONTEND_URL from environment
         const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
 
-
-        // Create transporter
+        // Create nodemailer transporter
         const transporter = nodemailer.createTransport({
             service: process.env.EMAIL_SERVICE,
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
+                pass: process.env.EMAIL_PASS, // must be Gmail App Password
+            },
         });
 
         // Compose email
         const mailOptions = {
             from: `"ICE CREAM DELIGHTS" <${process.env.EMAIL_USER}>`,
-            to: user.username, // assuming username is the user's email
+            to: user.username, // username is email
             subject: 'Password Reset Request',
             html: `
                 <h3>Password Reset</h3>
                 <p>You requested a password reset. Click the link below to reset your password:</p>
                 <a href="${resetLink}">${resetLink}</a>
                 <p>This link will expire after some time or after one use.</p>
-            `
+            `,
         };
 
-        // Send email
-        await transporter.sendMail(mailOptions);
+        // Send email with proper error logging
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error('❌ Failed to send email:', err);
+                return res.status(500).send('❌ Error sending email. Check server logs.');
+            } else {
+                console.log(`📧 Email sent to ${user.username}: ${info.response}`);
+                return res.send('✅ Password reset link has been sent to your email.');
+            }
+        });
 
-        console.log(`📧 Password reset email sent to: ${user.username}`);
-        res.send('✅ Password reset link has been sent to your email.');
     } catch (err) {
-        console.error(err);
+        console.error('❌ Error processing reset request:', err);
         res.status(500).send('❌ Error processing reset request.');
     }
 });
+
 
 // Handle Password Reset Submission
 app.post('/reset-password/:token', async (req, res) => {
