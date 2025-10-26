@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 // Replace with your actual MongoDB URI
 const MONGO_URI = process.env.MONGO_URI;
 
-//const MONGO_URI = "mongodb+srv://alvinkimani685_db_user:wUkOkscyMpEhoSE7@logindb.ir5crs9.mongodb.net/loginDB?retryWrites=true&w=majority&appName=logindb";
+
 
 if (!MONGO_URI) {
   console.error('❌ MONGO_URI is not defined in environment variables');
