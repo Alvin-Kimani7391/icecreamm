@@ -7,7 +7,10 @@ const session = require('express-session');
 const path = require('path');
 const User = require('./models/user');
 const crypto=require(`crypto`);
-const nodemailer = require('nodemailer');
+
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 
 const resetTokens=new Map();
 
@@ -125,22 +128,15 @@ app.post('/forgot-password', async (req, res) => {
         const token = crypto.randomBytes(20).toString('hex');
         resetTokens.set(token, user.username);
 
-        // Use FRONTEND_URL from environment
         const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
 
-        // Create nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: process.env.EMAIL_SERVICE,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS, // must be Gmail App Password
+        // Compose SendGrid email
+        const msg = {
+            to: user.username, // assuming username is the email
+            from: {
+                email: 'your_verified_sender@example.com',
+                name: 'ICE CREAM DELIGHTS',
             },
-        });
-
-        // Compose email
-        const mailOptions = {
-            from: `"ICE CREAM DELIGHTS" <${process.env.EMAIL_USER}>`,
-            to: user.username, // username is email
             subject: 'Password Reset Request',
             html: `
                 <h3>Password Reset</h3>
@@ -150,22 +146,17 @@ app.post('/forgot-password', async (req, res) => {
             `,
         };
 
-        // Send email with proper error logging
-        transporter.sendMail(mailOptions, (err, info) => {
-            if (err) {
-                console.error('❌ Failed to send email:', err);
-                return res.status(500).send('❌ Error sending email. Check server logs.');
-            } else {
-                console.log(`📧 Email sent to ${user.username}: ${info.response}`);
-                return res.send('✅ Password reset link has been sent to your email.');
-            }
-        });
+        // Send email
+        await sgMail.send(msg);
+        console.log(`📧 Password reset email sent to ${user.username}`);
+        res.send('✅ Password reset link has been sent to your email.');
 
     } catch (err) {
-        console.error('❌ Error processing reset request:', err);
-        res.status(500).send('❌ Error processing reset request.');
+        console.error('❌ Error sending email via SendGrid:', err);
+        res.status(500).send('❌ Error sending password reset email.');
     }
 });
+
 
 
 // Handle Password Reset Submission
